@@ -14,7 +14,7 @@ public class FlightService {
         Flight object = new Flight();
         object.setId(java.util.UUID.randomUUID().toString());
         object.getSeatNumber();
-        object.setSize("3");
+        object.setSize();
 
         return object;
 
@@ -26,13 +26,6 @@ public Iterable<Flight> retrieveAllFlights(){
     public void saveFlight(Flight flightToSave){
       flightRepo.save(flightToSave);
     }
-    public Flight[] findbigPlan() {
 
-return findSmallPlain();
-    }
-
-    public Flight[] findSmallPlain() {
-return findbigPlan();
-    }
 
 }

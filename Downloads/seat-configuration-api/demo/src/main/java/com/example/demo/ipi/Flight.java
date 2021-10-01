@@ -1,5 +1,6 @@
 package com.example.demo.ipi;
 // Aoutors: tai & bilala
+import com.fasterxml.jackson.databind.ser.std.CollectionSerializer;
 import lombok.Data;
 import lombok.Setter;
 import lombok.ToString;
@@ -26,24 +27,13 @@ public class Flight implements Serializable {
 
   private  String size;
   private  String seatNumber;
-    //    colection for big plan
-    public Flight[] findbigPlan() {
-        List<String> values =new ArrayList<String>();
-        values.add ("");
-        values.add ("");
-        values.add ("");
-        Collections.addAll(values);
-        return  findbigPlan();
+
+    public void setSize() {
+
     }
-//    colection for small plan
-    public Flight[] finfSmallPlan(){
-        List<String> values =new ArrayList<String>();
-        values.add ("");
-        values.add ("");
-        values.add ("");
-        Collections.addAll(values);
-        return  finfSmallPlan();
-    }
+//  private  List<Plan>planes = new Collections.EMPTY_LIST;
+//    //    colection for big plan
+//
 
     }
 

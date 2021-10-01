@@ -16,9 +16,10 @@ public class FlightController {
 //    }
 
     private final FlightRepo flightRepo;
-
-    public FlightController(FlightRepo flightRepo) {
+    private final PlantRepo plantRepo;
+    public FlightController(FlightRepo flightRepo, PlantRepo plantRepo) {
         this.flightRepo = flightRepo;
+        this.plantRepo = plantRepo;
     }
 
     @PostMapping("/flight")
@@ -28,5 +29,14 @@ public class FlightController {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
     }
-}
+        @PostMapping("/plan")
+        public ResponseEntity<Plan> save (@RequestBody Plan plan){
+            try {
+                return new ResponseEntity<>(plantRepo.save(plan), HttpStatus.CREATED);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+    }
