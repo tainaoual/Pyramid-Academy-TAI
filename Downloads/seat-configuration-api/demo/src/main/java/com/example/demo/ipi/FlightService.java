@@ -20,12 +20,11 @@ public class FlightService {
 
     }
 
-public Iterable<Flight> retrieveAllFlights(){
-    return flightRepo.findAll();
-}
-    public void saveFlight(Flight flightToSave){
-      flightRepo.save(flightToSave);
+    public Iterable<Flight> retrieveAllFlights(){
+        return flightRepo.findAll();
     }
+    public void saveFlight(Flight flightToSave){
+        flightRepo.save(flightToSave);
+    }}
 
 
-}
