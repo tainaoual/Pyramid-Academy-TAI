@@ -23,10 +23,10 @@ import java.util.List;
 //flight antity to find plans
 public class Flight implements Serializable {
     @Id
-  private  String id ;
+    private  String id ;
 
-  private  String size;
-  private  String seatNumber;
+    private  String size;
+    private  String seatNumber;
 
     public void setSize() {
 
@@ -35,5 +35,4 @@ public class Flight implements Serializable {
 //    //    colection for big plan
 //
 
-    }
-
+}

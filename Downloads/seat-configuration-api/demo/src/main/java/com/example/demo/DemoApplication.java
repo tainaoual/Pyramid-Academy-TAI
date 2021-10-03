@@ -12,19 +12,19 @@ public class DemoApplication {
         SpringApplication.run(DemoApplication.class, args);}
 
 
-    Flight nana = new Flight();
+//    Flight nana = new Flight();
+//
+//    Plan nana1 = new Plan();
+//
+//    String PlanType() {
+//        Runnable runnable = () -> PlanType();
+//        nana.setSize("10");
+//        nana1.setPSize("8");
+//        nana1.getType();
+//        nana1.getPSize();
+//        nana.getSize();
+//return nana1.PlanType();
 
-    Plan nana1 = new Plan();
-
-    String PlanType() {
-        Runnable runnable = () -> PlanType();
-        nana.setSize("10");
-        nana1.setPSize("8");
-        nana1.getType();
-        nana1.getPSize();
-        nana.getSize();
-return nana1.PlanType();
-
-    }
+//    }
 
 }
