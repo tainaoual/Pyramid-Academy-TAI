@@ -69,13 +69,13 @@ public class FlightController {
             return new ResponseEntity<List<Plan>>((List<Plan>) null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping("/small")
+    @GetMapping("/smallPlan")
     public Map<Plan,String[]> small(Plan plan){
-        return PlanService.findSmallPlanes(plan, "small");
+        return PlanService.findSmallPlanes(plan, "smallPlan");
     }
-    @GetMapping("/big")
+    @GetMapping("/bigPlan")
     public Map<Plan,String[]> big(Plan plan){
-        return PlanService.findBigPlanes(plan, "big");
+        return PlanService.findBigPlanes(plan, "bigPlan");
     }
 }
 
