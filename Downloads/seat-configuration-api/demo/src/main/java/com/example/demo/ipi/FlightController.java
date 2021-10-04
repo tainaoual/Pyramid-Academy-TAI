@@ -5,19 +5,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
 //controler class
 @RestController
 public class FlightController {
-//    @Autowired
-//    private FlightService flightService;
-//    @RequestMapping(method= RequestMethod.GET, value="/flights", produces={"application/xml"})
-//    public Flight getFlight() {
-//        return flightService.newFlight();
-//    }
+
     @Autowired
     private final FlightRepo flightRepo;
     private final PlantRepo plantRepo;
@@ -50,11 +45,7 @@ public class FlightController {
         }
     }
 
-    //            @GetMapping("/plan")
-////            @RequestMapping(method=RequestMethod.GET, value="/findTypesPlan", produces={"application/json"})
-//            public Plan[] findTypesPlan() {
-//                return PlanService.findTypesPlan();
-//            }
+
     @GetMapping("/plan")
     public ResponseEntity<List<Plan>> Type() {
         try {

@@ -6,11 +6,6 @@ import java.util.*;
 
 public class PlanService  {
 
-//    List<String> type = new ArrayList<String>();
-//            type.add("large");
-//        type.add("small");
-//        type.add("medium");
-//        Collections.addAll(type);
 
     @Autowired
     private PlantRepo plantRepo;
