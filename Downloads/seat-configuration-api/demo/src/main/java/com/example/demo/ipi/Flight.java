@@ -1,46 +1,32 @@
 package com.example.demo.ipi;
-// Aoutors: tai & bilala
+/* Title: Flight project Entity
+ * @author: tai & bilal
+ */
 import com.fasterxml.jackson.databind.ser.std.CollectionSerializer;
-import lombok.Data;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 @Entity
 @Table(name = "flight")
 @XmlRootElement
 @Data
-@ToString
-//flight antity to find plans
+@NoArgsConstructor
+/* This is the Flight Entity class
+ * Implements Serializable
+ * using @Data which is from lombok reduces boilerplate code,  it can generate getters and setters
+ * using @noArgsConstructor to automatically generate default empty constructor
+ */
 public class Flight implements Serializable {
-    @Id
+  @Id
   private  String id ;
-
   private  String size;
   private  String seatNumber;
-
   private String flightNumber;
-
-    public void setSize() {
-    }
-//  @OneToMany(mappedBy="flight",orphanRemoval = true)
-//  private List<Plan>plans=Collections.EMPTY_LIST;
-//
-//    public void setSize() {
-//
-//    }
-//  public  String getSeatNumber(){
-//    if("A1"seatNumber >"A10")
 
     }
 

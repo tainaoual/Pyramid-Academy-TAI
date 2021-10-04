@@ -15,7 +15,7 @@ package com.example.demo.ipi;
 @XmlRootElement
 @Data
 @ToString
-public class Plan implements Serializable {
+public class Plane implements Serializable {
 
 //flight antity to find plans
 

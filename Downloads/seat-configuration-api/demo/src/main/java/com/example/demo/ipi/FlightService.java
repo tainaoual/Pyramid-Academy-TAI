@@ -2,7 +2,7 @@ package com.example.demo.ipi;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-// service class
+/*Flight Service Class*/
 @Service
 public class FlightService {
     @Autowired
@@ -14,7 +14,7 @@ public class FlightService {
         Flight object = new Flight();
         object.setId(java.util.UUID.randomUUID().toString());
         object.getSeatNumber();
-        object.setSize();
+//        object.setSize();
 
         return object;
 

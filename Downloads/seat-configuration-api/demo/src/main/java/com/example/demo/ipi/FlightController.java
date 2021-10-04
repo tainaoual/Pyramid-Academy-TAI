@@ -5,32 +5,30 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//controler class
+/*Rest Controller Class for Flight Entity */
 @RestController
 public class FlightController {
-//    @Autowired
-//    private FlightService flightService;
-//    @RequestMapping(method= RequestMethod.GET, value="/flights", produces={"application/xml"})
-//    public Flight getFlight() {
-//        return flightService.newFlight();
-//    }
+
+
     @Autowired
     private final FlightRepo flightRepo;
-    private final PlantRepo plantRepo;
-    private PlanService planService;
+    private final PlaneRepo planeRepo;
+    private PlaneService planeService;
 
 
-    public FlightController(FlightRepo flightRepo, PlantRepo plantRepo) {
+    public FlightController(FlightRepo flightRepo, PlaneRepo planeRepo) {
         this.flightRepo = flightRepo;
-        this.plantRepo = plantRepo;
+        this.planeRepo = planeRepo;
     }
 
 
-
+    /*This Method allows for saving the Flight body content
+    * @param type: Flight
+    * @return: flight/HttpStatusCode
+    * */
     @PostMapping("/flight")
     public ResponseEntity<Flight> save(@RequestBody Flight flight) {
         try {
@@ -40,42 +38,54 @@ public class FlightController {
         }
     }
 
-
-    @PostMapping("/plan")
-    public ResponseEntity<Plan> save(@RequestBody Plan plan) {
+    /* This Method allows for saving the Flight body content
+     * @param type: Plane
+     * @return: plane/HttpStatusCode
+     * */
+    @PostMapping("/plane")
+    public ResponseEntity<Plane> save(@RequestBody Plane plane) {
         try {
-            return new ResponseEntity<>(plantRepo.save(plan), HttpStatus.CREATED);
+            return new ResponseEntity<>(planeRepo.save(plane), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    //            @GetMapping("/plan")
-////            @RequestMapping(method=RequestMethod.GET, value="/findTypesPlan", produces={"application/json"})
-//            public Plan[] findTypesPlan() {
-//                return PlanService.findTypesPlan();
-//            }
+    /* This Method attempts to read Plane from DB
+     * @param type: Plane
+     * @return: plane/HttpStatusCode
+     * */
     @GetMapping("/plan")
-    public ResponseEntity<List<Plan>> Type() {
+    public ResponseEntity<List<Plane>> Type() {
         try {
-            List<Plan> list = (List<Plan>) plantRepo.findAll();
+            List<Plane> list = (List<Plane>) planeRepo.findAll();
             if (list.isEmpty() || list.size() == '0') {
-                return new ResponseEntity<List<Plan>>(HttpStatus.NO_CONTENT);
+                return new ResponseEntity<List<Plane>>(HttpStatus.NO_CONTENT);
 
             }
-            return new ResponseEntity<List<Plan>>(list, HttpStatus.OK);
+            return new ResponseEntity<List<Plane>>(list, HttpStatus.OK);
         } catch (Exception e) {
 
-            return new ResponseEntity<List<Plan>>((List<Plan>) null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<List<Plane>>((List<Plane>) null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    /* This Method attempts to read smallPlane from DB
+     * @param type: Plane
+     * @return: plane/HttpStatusCode
+     * */
     @GetMapping("/smallPlan")
-    public Map<Plan,String[]> small(Plan plan){
-        return PlanService.findSmallPlanes(plan, "smallPlan");
+    public Map<Plane,String[]> small(Plane plane){
+        return PlaneService.findSmallPlanes(plane, "smallPlan");
     }
+
+    /* This Method attempts to read bigPlane from DB
+     * @param type: Plane
+     * @return: plane/HttpStatusCode
+     * */
     @GetMapping("/bigPlan")
-    public Map<Plan,String[]> big(Plan plan){
-        return PlanService.findBigPlanes(plan, "bigPlan");
+    public Map<Plane,String[]> big(Plane plane){
+        return PlaneService.findBigPlanes(plane, "bigPlan");
     }
 }
 
